@@ -1,0 +1,17 @@
+{
+  "name": "leetrank",
+  "version": "1.0.0",
+  "description": "Displays Clist ratings on LeetCode",
+  "scripts": {
+    "build": "esbuild src/content.ts src/background.ts src/popup.ts --bundle --outdir=dist --format=iife",
+    "watch": "esbuild src/content.ts src/background.ts src/popup.ts --bundle --outdir=dist --format=iife --watch"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.260",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.1",
+    "esbuild": "^0.20.0"
+  }
+}
