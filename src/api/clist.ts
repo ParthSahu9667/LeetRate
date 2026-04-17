@@ -1,5 +1,4 @@
-const CLIST_USERNAME = 'YOUR_CLIST_USERNAME';
-const CLIST_API_KEY = 'YOUR_CLIST_API_KEY';
+import { getClistToken } from '../storage';
 
 export interface RatingResult {
     success: boolean;
@@ -7,18 +6,37 @@ export interface RatingResult {
     error?: string;
 }
 
+export async function validateClistToken(token: string): Promise<boolean> {
+    const url = `https://clist.by/api/v4/problem/?limit=1`;
+    try {
+        const response = await fetch(url, {
+            headers: {
+                'Authorization': `ApiKey ${token}`
+            }
+        });
+        return response.ok;
+    } catch (error) {
+        return false;
+    }
+}
+
 export async function fetchClistRating(slug: string): Promise<RatingResult> {
+    const token = await getClistToken();
+    if (!token) {
+        return { success: false, error: 'API key not configured' };
+    }
+
     const url = `https://clist.by/api/v4/problem/?resource=leetcode.com&slug=${slug}`;
     
     try {
         const response = await fetch(url, {
             headers: {
-                'Authorization': `ApiKey ${CLIST_USERNAME}:${CLIST_API_KEY}`
+                'Authorization': `ApiKey ${token}`
             }
         });
 
         if (!response.ok) {
-             throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const data = await response.json();

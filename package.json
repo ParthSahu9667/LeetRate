@@ -1,17 +1,22 @@
 {
-  "name": "leetrank",
-  "version": "1.0.0",
+  "name": "LeetRate",
+  "version": "1.1.0",
   "description": "Displays Clist ratings on LeetCode",
   "scripts": {
-    "build": "esbuild src/content.ts src/background.ts src/popup.ts --bundle --outdir=dist --format=iife",
-    "watch": "esbuild src/content.ts src/background.ts src/popup.ts --bundle --outdir=dist --format=iife --watch"
+    "dev": "vite",
+    "dev:css": "npx @tailwindcss/cli -i ./src/style.css -o ./dist/tailwind.css --watch",
+    "build": "npx @tailwindcss/cli -i ./src/style.css -o ./dist/tailwind.css --minify && esbuild src/content.ts src/background.ts src/popup.ts --bundle --outdir=dist --format=iife"
   },
   "devDependencies": {
+    "@crxjs/vite-plugin": "^2.4.0",
+    "@tailwindcss/cli": "^4.2.2",
     "@types/chrome": "^0.0.260",
-    "typescript": "^5.9.3"
+    "esbuild": "^0.28.0",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.8"
   },
   "dependencies": {
-    "dotenv": "^17.4.1",
-    "esbuild": "^0.20.0"
+    "dotenv": "^17.4.1"
   }
 }

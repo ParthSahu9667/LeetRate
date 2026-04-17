@@ -1,15 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "LeetRank",
-  "version": "1.0",
+  "name": "LeetRate",
+  "version": "1.1",
   "description": "Fetches and displays the clist.by rating for LeetCode problems directly on the page.",
   "action": {
     "default_popup": "popup.html",
-    "default_title": "LeetRank"
+    "default_title": "LeetRate"
   },
   "permissions": [
-    "activeTab",
-    "scripting"
+    "storage"
   ],
   "host_permissions": [
     "https://leetcode.com/problems/*",

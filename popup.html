@@ -2,48 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>LeetRank Popup</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      width: 260px;
-      margin: 0;
-      padding: 16px;
-      /* Dark theme similar to LeetCode */
-      background-color: #1a1a1a;
-      color: #eff1f6bf;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    h1 {
-      font-size: 18px;
-      margin: 0;
-      color: #ffa116; /* Leetcode brand orange */
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .status {
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    .footer {
-      font-size: 12px;
-      color: #8c8c8c;
-      margin-top: 8px;
-      border-top: 1px solid #333;
-      padding-top: 8px;
-      text-align: center;
-    }
-  </style>
+  <title>LeetRate Popup</title>
+  <link rel="stylesheet" href="/dist/tailwind.css" type="text/css" />
 </head>
-<body>
-  <h1>
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-    LeetRank
-  </h1>
-  <div class="status">Integration is active. Ratings are hidden by default.<br><br>Open any LeetCode problem to click and reveal its Clist.by rating.</div>
+<body class="bg-zinc-950 text-zinc-300 w-[350px] h-[450px] m-0 overflow-hidden font-sans antialiased text-sm flex items-center justify-center">
+  <div id="app" class="w-full h-full relative">
+    <!-- UI gets injected here by popup.js -->
+  </div>
   <script src="dist/popup.js"></script>
 </body>
 </html>
